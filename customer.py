@@ -2,6 +2,10 @@ import os
 import json
 import re
 
+# TODO:
+# check if phone number allready exists in database
+# change choose_account_type else line
+
 # JSON path and file
 # Full folder path
 folder = os.path.expanduser('~/projects/all/banking_system')
@@ -9,7 +13,7 @@ filename = 'customers.json'
 full_path = os.path.join(folder, filename)
 
 
-class Customer:
+class Bank:
     def __init__(
             self,
             fullname,
@@ -23,13 +27,18 @@ class Customer:
         self.email = email
         self.password = password
         self.phone_number = phone_number
-        self.account_type = account_type if account_type else self.choose_account_type()
+        self.account_type = (
+            account_type if account_type else self.choose_account_type()
+        )
         self.balance = balance if balance else 0
 
     # Choose account type
     def choose_account_type(self):
         """Ask the user for their account type."""
-        decision = input("Choose account type (saving/current): ")
+        decision = input(
+            "Choose account type (saving/current):"
+            "---> "
+            )
         if decision.lower() == "saving":
             return "saving"
         elif decision.lower() == "current":
@@ -70,10 +79,20 @@ class Customer:
         with open(full_path, 'w') as file:
             json.dump(data, file, indent=4)
 
+    # Validate full name format
+    @staticmethod
+    def validate_fullname(fullname):
+        # Define our regex pattern for validation
+        pattern = r"^[A-Za-z]+ [A-Za-z]+$"
+        # We use the re.match function to test the fullname against the pattern
+        match = re.match(pattern, fullname)
+        # Return True if the fullname matches the pattern, False otherwise
+        return bool(match)
+
     # Check if emain already registered
     @classmethod
     def check_email_registered(cls, email, folder, filename):
-        full_path = os.path.join(folder, filename)  # Ensure file path is correctly defined
+        # Ensure file path is correctly defined
         try:
             with open(full_path, 'r') as file:
                 customers = json.load(file)
@@ -87,38 +106,86 @@ class Customer:
                 return True
         return False  # Only return False if no matching email is found
 
+    # Validate email format
+    @staticmethod
+    def validate_email(email):
+        # Define our regex pattern for validation
+        pattern = r"^\S+@\S+\.\S+$"
+        # We use the re.match function to test the email against the pattern
+        match = re.match(pattern, email)
+        # Return True if the email matches the pattern, False otherwise
+        return bool(match)
+
     # Check password security level
     @staticmethod
     def validate_password(password):
         # Define our regex pattern for validation
         pattern = r"^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$"
-
         # We use the re.match function to test the password against the pattern
         match = re.match(pattern, password)
-
         # Return True if the password matches the pattern, False otherwise
+        return bool(match)
+
+    # Validate phone number format
+    @staticmethod
+    def validate_phone_number(phone_number):
+        # Define our regex pattern for validation
+        pattern = r"^[1-9][0-9]{7,14}$"
+        # We use the re.match function to test --->
+        # the phone number against the pattern
+        match = re.match(pattern, phone_number)
+        # Return True if the phone number matches the pattern, False otherwise
         return bool(match)
 
     # Registrate new customer
     @classmethod
     def register(cls, folder, filename):
-        """Handle customer registration."""
-        fullname = input("Enter your fullname: ").title()
+        # Ask fullname
+        fullname = input(
+            "Enter your Name and Surname:\n"
+            "e.g John Smith\n"
+            "---> "
+            ).title()
+        while not cls.validate_fullname(fullname):
+            print("Invalid name. Please try again.")
+            fullname = input()
 
         # Check if email is already registered
-        email = input("Enter your email: ")
+        email = input(
+            "Enter your email:\n"
+            "e.g. example@mail.com\n"
+            "---> "
+            )
+        while not cls.validate_email(email):
+            print("Invalid email. Please try again.")
+            email = input()
         while cls.check_email_registered(email, folder, filename):
             print("Email already registered. Please try again.")
-            email = input("Enter your email: ")
+            email = input()
 
         # Check password security level
-        password = input("Enter your password: ")
-        while not cls.validate_password(password):  # Change this condition to check if the password is invalid
+        password = input(
+            "Enter your password:\n"
+            "* Has minimum 8 characters in length.\n"
+            "* At least one uppercase English letter.\n"
+            "* At least one digit.\n"
+            "* At least one special character.\n"
+            "---> "
+            )
+        while not cls.validate_password(password):
             print("Password is too weak. Please try again.")
-            password = input("Enter your password: ")
+            password = input()
 
         # Check phone number format
-        phone_number = input("Enter your phone number: ")
+        phone_number = input(
+            "Enter your phone number:\n"
+            "e.g. 123456789\n"
+            "---> "
+            )
+        while not cls.validate_phone_number(phone_number):
+            print("Invalid phone number. Please try again.")
+            phone_number = input()
+
         print("Registration successful!")
 
         # Create a new customer instance
@@ -127,6 +194,7 @@ class Customer:
         # Save customer data to the JSON file in the specified folder
         new_customer.save_to_json(folder, filename)
 
+    # Print all registered customers from the JSON file
     @classmethod
     def print_all_customers(cls, folder, filename):
         """Print all registered customers from the JSON file."""
@@ -150,6 +218,7 @@ class Customer:
         else:
             print("No customers registered yet.")
 
+    # Handle customer login and provide appropriate responses
     @classmethod
     def login(cls, folder, filename):
         """Handle customer login."""
@@ -176,10 +245,10 @@ class Customer:
 
 
 # Print all registered customers
-# Customer.print_all_customers(folder, filename)
+# Bank.print_all_customers(folder, filename)
 
 # Registrate new customer
-Customer.register(folder, filename)
+# Bank.register(folder, filename)
 
 # Login
-# Customer.login(folder, filename)
+# Bank.login(folder, filename)

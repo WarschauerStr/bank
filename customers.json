@@ -30,5 +30,101 @@
         "phone_number": "124124",
         "account_type": "current",
         "balance": 0
+    },
+    {
+        "fullname": "Ronie Colleman",
+        "email": "masd",
+        "password": "Coo1P@ss",
+        "phone_number": "+2365243626",
+        "account_type": "saving",
+        "balance": 0
+    },
+    {
+        "fullname": "Max",
+        "email": "max@gmail.com",
+        "password": "1Qqdascasfc@",
+        "phone_number": "a;solfkasfl",
+        "account_type": "current",
+        "balance": 0
+    },
+    {
+        "fullname": "Hi",
+        "email": "1max@gmail.com",
+        "password": "1@Qasdfvafv",
+        "phone_number": "asfasfasf",
+        "account_type": "current",
+        "balance": 0
+    },
+    {
+        "fullname": "As",
+        "email": "asldf@gmail.com",
+        "password": "1QEasd;fokasf",
+        "phone_number": "12345678",
+        "account_type": "current",
+        "balance": 0
+    },
+    {
+        "fullname": "Max",
+        "email": "1@gmail.com",
+        "password": "1@Qwqertwet",
+        "phone_number": "+1385717512358",
+        "account_type": "current",
+        "balance": 0
+    },
+    {
+        "fullname": "Max",
+        "email": "438957@gmail.com",
+        "password": "eriughdg123QWE@@",
+        "phone_number": "12345678",
+        "account_type": "saving",
+        "balance": 0
+    },
+    {
+        "fullname": "Max",
+        "email": "sdgjk@gmail.com",
+        "password": "asdghjsdfQWEQWE!!@#1123",
+        "phone_number": "23148124",
+        "account_type": "saving",
+        "balance": 0
+    },
+    {
+        "fullname": "Geteer",
+        "email": "hello@gmail.com",
+        "password": "123QWE@@asfasf",
+        "phone_number": "21423456223",
+        "account_type": "saving",
+        "balance": 0
+    },
+    {
+        "fullname": "Asdj",
+        "email": "eikhgjdfgj@adlkf.com",
+        "password": "123123123!@#!qweQWE",
+        "phone_number": "234872344",
+        "account_type": "saving",
+        "balance": 0
+    },
+    {
+        "fullname": "asd asd",
+        "email": "asd@gasd.cc",
+        "password": "123!@#asdQWE",
+        "phone_number": "124124124",
+        "account_type": "current",
+        "balance": 0
+    },
+    {
+        "fullname": "Eve Online",
+        "email": "main_email@gmail.com",
+        "password": "qwertyQ1!",
+        "phone_number": "123456789",
+        "account_type": "saving",
+        "balance": 0
+    },
+    {
+        "fullname": "Joe Rogan",
+        "email": "asfdasf@asf.com",
+        "password": "sdkgjsdgj123@#QE",
+        "phone_number": "237862356",
+        "account_type": "saving",
+        "balance": 0
     }
 ]
