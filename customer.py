@@ -1,5 +1,6 @@
 import os
 import json
+import re
 
 # JSON path and file
 # Full folder path
@@ -25,6 +26,7 @@ class Customer:
         self.account_type = account_type if account_type else self.choose_account_type()
         self.balance = balance if balance else 0
 
+    # Choose account type
     def choose_account_type(self):
         """Ask the user for their account type."""
         decision = input("Choose account type (saving/current): ")
@@ -36,6 +38,7 @@ class Customer:
             print("Invalid account type. Defaulting to current.")
             return "current"
 
+    # Save all data to JSON file
     def save_to_json(self, folder, filename):
         """Save customer data to a JSON file in a specific folder."""
         # Ensure the folder exists
@@ -67,12 +70,54 @@ class Customer:
         with open(full_path, 'w') as file:
             json.dump(data, file, indent=4)
 
+    # Check if emain already registered
+    @classmethod
+    def check_email_registered(cls, email, folder, filename):
+        full_path = os.path.join(folder, filename)  # Ensure file path is correctly defined
+        try:
+            with open(full_path, 'r') as file:
+                customers = json.load(file)
+        except FileNotFoundError:
+            print("No customer data found!")
+            return False  # Return False if the file doesn't exist
+
+        # Check if the email already exists in the JSON file
+        for customer in customers:
+            if customer['email'] == email:
+                return True
+        return False  # Only return False if no matching email is found
+
+    # Check password security level
+    @staticmethod
+    def validate_password(password):
+        # Define our regex pattern for validation
+        pattern = r"^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$"
+
+        # We use the re.match function to test the password against the pattern
+        match = re.match(pattern, password)
+
+        # Return True if the password matches the pattern, False otherwise
+        return bool(match)
+
+    # Registrate new customer
     @classmethod
     def register(cls, folder, filename):
         """Handle customer registration."""
         fullname = input("Enter your fullname: ").title()
+
+        # Check if email is already registered
         email = input("Enter your email: ")
+        while cls.check_email_registered(email, folder, filename):
+            print("Email already registered. Please try again.")
+            email = input("Enter your email: ")
+
+        # Check password security level
         password = input("Enter your password: ")
+        while not cls.validate_password(password):  # Change this condition to check if the password is invalid
+            print("Password is too weak. Please try again.")
+            password = input("Enter your password: ")
+
+        # Check phone number format
         phone_number = input("Enter your phone number: ")
         print("Registration successful!")
 
@@ -130,11 +175,11 @@ class Customer:
         print("Invalid email or password!")
 
 
-# Registrate new customer
-# Customer.register(folder, filename)
-
 # Print all registered customers
-Customer.print_all_customers(folder, filename)
+# Customer.print_all_customers(folder, filename)
+
+# Registrate new customer
+Customer.register(folder, filename)
 
 # Login
-Customer.login(folder, filename)
+# Customer.login(folder, filename)

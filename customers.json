@@ -3,23 +3,31 @@
         "fullname": "Maksym Rokochyi",
         "email": "123",
         "password": "123",
-        "phone_number": "+49129487147",
-        "account_type": "current",
+        "phone_number": "+2340574573",
+        "account_type": "saving",
         "balance": 0
     },
     {
-        "fullname": "Mafia Boss ",
+        "fullname": "Geoge Washington",
         "email": "321",
         "password": "321",
-        "phone_number": "+49129487147",
+        "phone_number": "+43982345123",
         "account_type": "current",
         "balance": 0
     },
     {
-        "fullname": "Mark Zubik",
-        "email": "1234",
-        "password": "1234",
-        "phone_number": "jhbki",
+        "fullname": "Asd",
+        "email": "asd",
+        "password": "StrongPass1.",
+        "phone_number": "123123",
+        "account_type": "current",
+        "balance": 0
+    },
+    {
+        "fullname": "Check",
+        "email": "lk",
+        "password": "Qwerty1!",
+        "phone_number": "124124",
         "account_type": "current",
         "balance": 0
     }
