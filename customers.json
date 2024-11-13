@@ -1,0 +1,26 @@
+[
+    {
+        "fullname": "Maksym Rokochyi",
+        "email": "123",
+        "password": "123",
+        "phone_number": "+49129487147",
+        "account_type": "current",
+        "balance": 0
+    },
+    {
+        "fullname": "Mafia Boss ",
+        "email": "321",
+        "password": "321",
+        "phone_number": "+49129487147",
+        "account_type": "current",
+        "balance": 0
+    },
+    {
+        "fullname": "Mark Zubik",
+        "email": "1234",
+        "password": "1234",
+        "phone_number": "jhbki",
+        "account_type": "current",
+        "balance": 0
+    }
+]
