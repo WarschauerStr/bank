@@ -1,213 +1,47 @@
 [
     {
-        "fullname": "Maksym Rokochyi",
-        "email": "123123",
-        "password": "123123",
-        "phone_number": "+2340574573",
-        "account_type": "saving",
-        "balance": 0
-    },
-    {
-        "fullname": "Geoge Washington",
-        "email": "321",
-        "password": "321",
-        "phone_number": "+43982345123",
+        "fullname": "1",
+        "email": "1",
+        "password": "1",
+        "phone_number": "1",
         "account_type": "current",
-        "balance": 0
-    },
-    {
-        "fullname": "Asd",
-        "email": "asd",
-        "password": "StrongPass1.",
-        "phone_number": "123123",
-        "account_type": "current",
-        "balance": 0
-    },
-    {
-        "fullname": "Check",
-        "email": "lk",
-        "password": "Qwerty1!",
-        "phone_number": "124124",
-        "account_type": "current",
-        "balance": 0
-    },
-    {
-        "fullname": "Ronie Colleman",
-        "email": "masd",
-        "password": "Coo1P@ss",
-        "phone_number": "+2365243626",
-        "account_type": "saving",
-        "balance": 0
-    },
-    {
-        "fullname": "Max",
-        "email": "max@gmail.com",
-        "password": "1Qqdascasfc@",
-        "phone_number": "a;solfkasfl",
-        "account_type": "current",
-        "balance": 0
-    },
-    {
-        "fullname": "Hi",
-        "email": "1max@gmail.com",
-        "password": "1@Qasdfvafv",
-        "phone_number": "asfasfasf",
-        "account_type": "current",
-        "balance": 0
-    },
-    {
-        "fullname": "As",
-        "email": "asldf@gmail.com",
-        "password": "1QEasd;fokasf",
-        "phone_number": "12345678",
-        "account_type": "current",
-        "balance": 0
-    },
-    {
-        "fullname": "Max",
-        "email": "1@gmail.com",
-        "password": "1@Qwqertwet",
-        "phone_number": "+1385717512358",
-        "account_type": "current",
-        "balance": 0
-    },
-    {
-        "fullname": "Max",
-        "email": "438957@gmail.com",
-        "password": "eriughdg123QWE@@",
-        "phone_number": "12345678",
-        "account_type": "saving",
-        "balance": 0
-    },
-    {
-        "fullname": "Max",
-        "email": "sdgjk@gmail.com",
-        "password": "asdghjsdfQWEQWE!!@#1123",
-        "phone_number": "23148124",
-        "account_type": "saving",
-        "balance": 0
-    },
-    {
-        "fullname": "Geteer",
-        "email": "hello@gmail.com",
-        "password": "123QWE@@asfasf",
-        "phone_number": "21423456223",
-        "account_type": "saving",
-        "balance": 0
-    },
-    {
-        "fullname": "Asdj",
-        "email": "eikhgjdfgj@adlkf.com",
-        "password": "123123123!@#!qweQWE",
-        "phone_number": "234872344",
-        "account_type": "saving",
-        "balance": 0
-    },
-    {
-        "fullname": "asd asd",
-        "email": "asd@gasd.cc",
-        "password": "123!@#asdQWE",
-        "phone_number": "124124124",
-        "account_type": "current",
-        "balance": 0
-    },
-    {
-        "fullname": "Eve Online",
-        "email": "main_email@gmail.com",
-        "password": "qwertyQ1!",
-        "phone_number": "123456789",
-        "account_type": "saving",
-        "balance": 0
-    },
-    {
-        "fullname": "Joe Rogan",
-        "email": "asfdasf@asf.com",
-        "password": "sdkgjsdgj123@#QE",
-        "phone_number": "237862356",
-        "account_type": "saving",
-        "balance": 0
-    },
-    {
-        "fullname": "Joe RoganNew",
-        "email": "zxcv@gmail.com",
-        "password": "zxcQWE!@#123",
-        "phone_number": "12347567358",
-        "account_type": "saving",
-        "balance": 0
+        "balance": 123123.0,
+        "registration_date": "14-11-2024 14:10:01"
     },
     {
         "fullname": "123",
         "email": "123",
         "password": "123",
-        "phone_number": "123456789",
+        "phone_number": "123",
         "account_type": "current",
-        "balance": 0
+        "balance": 200.0,
+        "registration_date": "14-11-2024 14:10:01"
     },
     {
-        "fullname": "Go Billie",
-        "email": "test@any.com",
-        "password": "123!@#qewQWE",
-        "phone_number": "2305972389057",
-        "account_type": "saving",
-        "balance": 0
-    },
-    {
-        "fullname": "Qwe Qwe",
-        "email": "sdf@gmail.com",
-        "password": "askf!@#QWEq12",
-        "phone_number": "2352345532",
-        "account_type": "saving",
-        "balance": 0
-    },
-    {
-        "fullname": "Vjb Vcb",
-        "email": "usdhghdg@sdf.asd",
-        "password": "qweQWE123!@#",
-        "phone_number": "213985474",
-        "account_type": "current",
-        "balance": 0
-    },
-    {
-        "fullname": "Ta Ta",
-        "email": "maxmax@gmail.com",
-        "password": "qweQWE123!@#",
-        "phone_number": "3487357532",
-        "account_type": "current",
-        "balance": 0
-    },
-    {
-        "fullname": "Kdfgj Dfg",
-        "email": "aifhh@sdg.asd",
-        "password": "ajskhdQWE123!@#",
-        "phone_number": "2734626344",
-        "account_type": "current",
-        "balance": 0
-    },
-    {
-        "fullname": "Asddf Asfd",
-        "email": "sjadf@as.asd",
-        "password": "qweQWE123!@#",
-        "phone_number": "34577534",
+        "fullname": "Asd Asd",
+        "email": "asd@asfd.asd",
+        "password": "adQWE123QE!@#",
+        "phone_number": "1231231233324",
         "account_type": "current",
         "balance": 0,
-        "registration_date": null
+        "registration_date": "14-11-2024 14:10:01"
     },
     {
-        "fullname": "Asjhfd Asdjf",
-        "email": "124qwe@gmail.com",
-        "password": "wefoQWE123QWE!@#",
-        "phone_number": "12412312356",
+        "fullname": "Max Max",
+        "email": "123@asd.asd",
+        "password": "!@#qwe123qweqQ",
+        "phone_number": "2345235352",
         "account_type": "current",
         "balance": 0,
-        "registration_date": null
+        "registration_date": "14-11-2024 14:10:01"
     },
     {
-        "fullname": "Jsdf Sdf",
-        "email": "123@asf.asd",
-        "password": "123!@#qweQWE",
-        "phone_number": "435873753",
+        "fullname": "Maksym Rokochyi",
+        "email": "maxim@gmail.com",
+        "password": "1!Qqwerty",
+        "phone_number": "124424244",
         "account_type": "current",
-        "balance": 0,
-        "registration_date": "2024-11-14"
+        "balance": 100000.0,
+        "registration_date": "14-11-2024 14:38:27"
     }
 ]

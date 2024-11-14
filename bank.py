@@ -22,8 +22,8 @@ class Bank:
             email,
             password,
             phone_number,
+            balance=0,
             account_type=None,
-            balance=None,
             regestration_date=None):
         self.fullname = fullname
         self.email = email
@@ -33,7 +33,7 @@ class Bank:
             account_type if account_type else self.choose_account_type()
         )
         self.balance = balance if balance else 0
-        self.regestration_date = datetime.now().strftime("%Y-%m-%d")
+        self.regestration_date = datetime.now().strftime("%d-%m-%Y %H:%M:%S")
 
     def choose_account_type(self):
         """Ask the user for their account type."""
@@ -111,8 +111,58 @@ class Bank:
         for customer in customers:
             if customer['email'] == email and customer['password'] == password:
                 print(
-                    "Login successful!\n"
-                    f"Welcome back, {customer[f'fullname']}!"
+                    f"\nLogin successful!\n"
+                    f"Welcome back, {customer['fullname']}!\n"
+                )
+
+# After successful login, ask if the user wants to update their details
+                while True:
+                    print(
+                        "\nPlease select an action:\n"
+                        "1. Deposit money\n"
+                        "2. Withdraw money\n"
+                        "3. Exit\n"
                     )
-                return
-        print("Invalid email or password!")
+                    choice = input(
+                        "Enter your choice: (e.g. 1, 2, 3): "
+                    )
+
+                    # Deposit option
+                    if choice == "1":
+                        amount = input(
+                            "\nEnter amount that you want to deposit: "
+                            )
+                        # Validate and convert amount to float
+                        try:
+                            amount = float(amount)
+                            customer["balance"] += amount
+                            print(f"Balance updated. New balance: ${customer['balance']}")
+# Save the updated customers data back to the JSON file
+                            with open(full_path, 'w') as file:
+                                json.dump(customers, file, indent=4)
+                        except ValueError:
+                            print("Invalid amount. Please enter a valid number.")
+
+                    # Withdraw option
+                    elif choice == "2":
+                        amount = input("Enter amount that you want to withdraw: ")
+                        # Validate and convert amount to float
+                        try:
+                            amount = float(amount)
+                            if amount > customer["balance"]:
+                                print("Not enough money on the account.")
+                            else:
+                                customer["balance"] -= amount
+                                print(f"Balance updated. New balance: ${customer['balance']}")
+# Save the updated customers data back to the JSON file
+                                with open(full_path, 'w') as file:
+                                    json.dump(customers, file, indent=4)
+                        except ValueError:
+                            print(
+                                "Invalid amount. Please enter a valid number."
+                                )
+
+                    # Exit option
+                    elif choice == "3":
+                        print("Exiting...")
+                        break
