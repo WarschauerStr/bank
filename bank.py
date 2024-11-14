@@ -12,6 +12,7 @@ from utils import (
 
 import json
 import os
+from datetime import datetime
 
 
 class Bank:
@@ -22,7 +23,8 @@ class Bank:
             password,
             phone_number,
             account_type=None,
-            balance=None):
+            balance=None,
+            regestration_date=None):
         self.fullname = fullname
         self.email = email
         self.password = password
@@ -31,6 +33,7 @@ class Bank:
             account_type if account_type else self.choose_account_type()
         )
         self.balance = balance if balance else 0
+        self.regestration_date = datetime.now().strftime("%Y-%m-%d")
 
     def choose_account_type(self):
         """Ask the user for their account type."""
@@ -92,6 +95,7 @@ class Bank:
     def login(cls, folder, filename):
         """Handle customer login."""
         full_path = os.path.join(folder, filename)
+        print("Login:")
         email = input("Enter your email: ")
         password = input("Enter your password: ")
 

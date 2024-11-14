@@ -21,6 +21,7 @@ def save_to_json(bank_instance, folder, filename):
         'phone_number': bank_instance.phone_number,
         'account_type': bank_instance.account_type,
         'balance': bank_instance.balance,
+        'registration_date': bank_instance.regestration_date
     }
 
     data.append(customer_data)

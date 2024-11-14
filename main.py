@@ -9,4 +9,4 @@ filename = "customers.json"
 Bank.register(folder, filename)
 
 # Login
-Bank.login(folder, filename)
+# Bank.login(folder, filename)

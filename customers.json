@@ -182,5 +182,32 @@
         "phone_number": "2734626344",
         "account_type": "current",
         "balance": 0
+    },
+    {
+        "fullname": "Asddf Asfd",
+        "email": "sjadf@as.asd",
+        "password": "qweQWE123!@#",
+        "phone_number": "34577534",
+        "account_type": "current",
+        "balance": 0,
+        "registration_date": null
+    },
+    {
+        "fullname": "Asjhfd Asdjf",
+        "email": "124qwe@gmail.com",
+        "password": "wefoQWE123QWE!@#",
+        "phone_number": "12412312356",
+        "account_type": "current",
+        "balance": 0,
+        "registration_date": null
+    },
+    {
+        "fullname": "Jsdf Sdf",
+        "email": "123@asf.asd",
+        "password": "123!@#qweQWE",
+        "phone_number": "435873753",
+        "account_type": "current",
+        "balance": 0,
+        "registration_date": "2024-11-14"
     }
 ]
