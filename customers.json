@@ -1,8 +1,8 @@
 [
     {
         "fullname": "Maksym Rokochyi",
-        "email": "123",
-        "password": "123",
+        "email": "123123",
+        "password": "123123",
         "phone_number": "+2340574573",
         "account_type": "saving",
         "balance": 0
@@ -125,6 +125,62 @@
         "password": "sdkgjsdgj123@#QE",
         "phone_number": "237862356",
         "account_type": "saving",
+        "balance": 0
+    },
+    {
+        "fullname": "Joe RoganNew",
+        "email": "zxcv@gmail.com",
+        "password": "zxcQWE!@#123",
+        "phone_number": "12347567358",
+        "account_type": "saving",
+        "balance": 0
+    },
+    {
+        "fullname": "123",
+        "email": "123",
+        "password": "123",
+        "phone_number": "123456789",
+        "account_type": "current",
+        "balance": 0
+    },
+    {
+        "fullname": "Go Billie",
+        "email": "test@any.com",
+        "password": "123!@#qewQWE",
+        "phone_number": "2305972389057",
+        "account_type": "saving",
+        "balance": 0
+    },
+    {
+        "fullname": "Qwe Qwe",
+        "email": "sdf@gmail.com",
+        "password": "askf!@#QWEq12",
+        "phone_number": "2352345532",
+        "account_type": "saving",
+        "balance": 0
+    },
+    {
+        "fullname": "Vjb Vcb",
+        "email": "usdhghdg@sdf.asd",
+        "password": "qweQWE123!@#",
+        "phone_number": "213985474",
+        "account_type": "current",
+        "balance": 0
+    },
+    {
+        "fullname": "Ta Ta",
+        "email": "maxmax@gmail.com",
+        "password": "qweQWE123!@#",
+        "phone_number": "3487357532",
+        "account_type": "current",
+        "balance": 0
+    },
+    {
+        "fullname": "Kdfgj Dfg",
+        "email": "aifhh@sdg.asd",
+        "password": "ajskhdQWE123!@#",
+        "phone_number": "2734626344",
+        "account_type": "current",
         "balance": 0
     }
 ]
