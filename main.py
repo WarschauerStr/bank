@@ -6,10 +6,10 @@ filename = "customers.json"
 
 
 # Registrate new customer
-# Bank.register(folder, filename)
+Bank.register(folder, filename)
 
 # Login
-# Bank.login(folder, filename)
+Bank.login(folder, filename)
 
 # Deposit money
 # Bank.deposit(1000)
