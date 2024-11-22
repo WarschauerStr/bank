@@ -18,15 +18,21 @@ from datetime import datetime
 class Bank:
     def __init__(
             self,
-            customer):
-        self.fullname = customer["fullname"]
-        self.email = customer["email"]
-        self.password = customer["password"]
-        self.phone_number = customer["phone_number"]
+            fullname,
+            email,
+            password,
+            phone_number,
+            balance=0,
+            account_type=None,
+            regestration_date=None):
+        self.fullname = fullname
+        self.email = email
+        self.password = password
+        self.phone_number = phone_number
         self.account_type = (
-            customer["account_type"] if customer["account_type"] else self.choose_account_type()
+            account_type if account_type else self.choose_account_type()
         )
-        self.balance = customer["balance"] if customer["balance"] else 0
+        self.balance = balance if balance else 0
         self.regestration_date = datetime.now().strftime("%d-%m-%Y %H:%M:%S")
 
     def choose_account_type(self):
@@ -89,88 +95,90 @@ class Bank:
     def login(cls, folder, filename):
         """Handle customer login."""
         full_path = os.path.join(folder, filename)
+        customers = cls._load_customer_data(full_path)
+
+        if not customers:
+            print("No customer data found!")
+            return
+
+        customer = cls._authenticate_user(customers)
+        if customer:
+            cls._handle_post_login_actions(customer, full_path, customers)
+
+    @staticmethod
+    def _load_customer_data(full_path):
+        """Load customer data from the JSON file."""
+        try:
+            with open(full_path, 'r') as file:
+                return json.load(file)
+        except FileNotFoundError:
+            return []
+
+    @staticmethod
+    def _authenticate_user(customers):
+        """Authenticate the user by email and password."""
         print("Login:")
         email = input("Enter your email: ")
         password = input("Enter your password: ")
 
-        # Try to read data from the JSON file
-        try:
-            with open(full_path, 'r') as file:
-                customers = json.load(file)
-        except FileNotFoundError:
-            print("No customer data found!")
-            return
-
-        # Check if the email and password match any customer data
         for customer in customers:
-            print(customer)
             if customer['email'] == email and customer['password'] == password:
                 print(
                     f"\nLogin successful!\n"
                     f"Welcome back, {customer['fullname']}!\n"
                 )
                 return customer
+
         print("Invalid email or password. Please try again.")
-        return "Error"
+        return None
 
-    def deposit_money(self, customer, amount):
-        """Handle depositing money into the account."""
-        customer["balance"] += amount
-        print(f"Deposit successful! New balance: ${self.balance}")
+    @staticmethod
+    def _handle_post_login_actions(customer, full_path, customers):
+        """Handle deposit, withdrawal, and other actions post-login."""
+        while True:
+            print(
+                "\nPlease select an action:\n"
+                "1. Deposit money\n"
+                "2. Withdraw money\n"
+                "3. Exit\n"
+            )
+            choice = input("Enter your choice: (e.g. 1, 2, 3): ")
 
+            if choice == "1":
+                Bank._deposit_money(customer, full_path, customers)
+            elif choice == "2":
+                Bank._withdraw_money(customer, full_path, customers)
+            elif choice == "3":
+                print("Exiting...")
+                break
+            else:
+                print("Invalid choice. Please try again.")
 
+    @staticmethod
+    def _deposit_money(customer, full_path, customers):
+        """Handle deposit action."""
+        amount = input("\nEnter amount that you want to deposit: ")
+        try:
+            amount = float(amount)
+            customer["balance"] += amount
+            print(f"Balance updated. New balance: ${customer['balance']}")
+            with open(full_path, 'w') as file:
+                json.dump(customers, file, indent=4)
+        except ValueError:
+            print("Invalid amount. Please enter a valid number.")
 
-
-
-
-# # After successful login, ask if the user wants to update their details
-#                 while True:
-#                     print(
-#                         "\nPlease select an action:\n"
-#                         "1. Deposit money\n"
-#                         "2. Withdraw money\n"
-#                         "3. Exit\n"
-#                     )
-#                     choice = input(
-#                         "Enter your choice: (e.g. 1, 2, 3): "
-#                     )
-
-#                     # Deposit option
-#                     if choice == "1":
-#                         amount = input(
-#                             "\nEnter amount that you want to deposit: "
-#                             )
-#                         # Validate and convert amount to float
-#                         try:
-#                             amount = float(amount)
-#                             customer["balance"] += amount
-#                             print(f"Balance updated. New balance: ${customer['balance']}")
-# # Save the updated customers data back to the JSON file
-#                             with open(full_path, 'w') as file:
-#                                 json.dump(customers, file, indent=4)
-#                         except ValueError:
-#                             print("Invalid amount. Please enter a valid number.")
-
-#                     # Withdraw option
-#                     elif choice == "2":
-#                         amount = input("Enter amount that you want to withdraw: ")
-#                         # Validate and convert amount to float
-#                         try:
-#                             amount = float(amount)
-#                             if amount > customer["balance"]:
-#                                 print("Not enough money on the account.")
-#                             else:
-#                                 customer["balance"] -= amount
-#                                 print(f"Balance updated. New balance: ${customer['balance']}")
-# # Save the updated customers data back to the JSON file
-#                                 with open(full_path, 'w') as file:
-#                                     json.dump(customers, file, indent=4)
-#                         except ValueError:
-#                             print(
-#                                 "Invalid amount. Please enter a valid number."
-#                                 )
-
-#                     # Exit option
-#                     elif choice == "3":
-#                         print("Exiting...")
-#                         break
+    @staticmethod
+    def _withdraw_money(customer, full_path, customers):
+        """Handle withdrawal action."""
+        amount = input("Enter amount that you want to withdraw: ")
+        try:
+            amount = float(amount)
+            if amount > customer["balance"]:
+                print("Not enough money on the account.")
+            else:
+                customer["balance"] -= amount
+                print(f"Balance updated. New balance: ${customer['balance']}")
+                with open(full_path, 'w') as file:
+                    json.dump(customers, file, indent=4)
+        except ValueError:
+            print("Invalid amount. Please enter a valid number.")

@@ -14,7 +14,7 @@
         "password": "123",
         "phone_number": "123",
         "account_type": "current",
-        "balance": 1000000000199.0,
+        "balance": 1000.0,
         "registration_date": "14-11-2024 14:10:01"
     },
     {
@@ -52,5 +52,41 @@
         "account_type": "current",
         "balance": 0,
         "registration_date": "16-11-2024 12:05:42"
+    },
+    {
+        "fullname": "Okay Hello",
+        "email": "OkHi@gmail.com",
+        "password": "qwe!@#QWEQEewqes1",
+        "phone_number": "124564643",
+        "account_type": "current",
+        "balance": 0,
+        "registration_date": "18-11-2024 13:28:05"
+    },
+    {
+        "fullname": "Clara Beige",
+        "email": "ddd@gmail.com",
+        "password": "!@#qweQWE11",
+        "phone_number": "33333333321",
+        "account_type": "saving",
+        "balance": 0,
+        "registration_date": "22-11-2024 13:47:31"
+    },
+    {
+        "fullname": "ASD aDS",
+        "email": "casdc@ga.com",
+        "password": "QWEqwe!@#qwesad123",
+        "phone_number": "124412442",
+        "account_type": "current",
+        "balance": 0,
+        "registration_date": "22-11-2024 14:00:37"
+    },
+    {
+        "fullname": "max roko",
+        "email": "max@gmail.com",
+        "password": "!@#qwe!@#QWE123",
+        "phone_number": "123412412424",
+        "account_type": "current",
+        "balance": 0,
+        "registration_date": "22-11-2024 14:43:54"
     }
 ]
